@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频小广告 - 侧边栏</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="container">
+    <div class="pip-header" id="customHeader">
+      <span class="pip-title"></span>
+      <button class="refresh-btn" id="refreshBtn" title="刷新视频">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 4v6h-6"></path>
+          <path d="M1 20v-6h6"></path>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+      </button>
+    </div>
+    <ul class="hot-list" id="hotList"></ul>
+    <div class="video-area">
+      <video id="pipVideo" controls autoplay playsinline></video>
+    </div>
+    <div class="status" id="status">正在获取视频...</div>
+  </div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

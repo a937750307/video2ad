@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "系统通知",
+  "version": "1.0.0",
+  "description": "将视频伪装成新闻资讯弹窗，适合低调场景使用",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage",
+    "sidePanel",
+    "tabCapture"
+  ],
+  "host_permissions": [
+    "*://*.bilibili.com/*",
+    "*://*.youtube.com/*",
+    "*://*.douyin.com/*",
+    "*://*.iqiyi.com/*",
+    "*://*.youku.com/*",
+    "*://*.qq.com/*",
+    "*://*.netflix.com/*",
+    "*://*.kuaishou.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "视频小广告"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["bridge.js", "pip-activate.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://127.0.0.1/*",
+      "*://localhost/*"
+    ]
+  }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频转广告 - Chrome 侧边栏视频工具</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: inline-block;
+      width: 56px;
+      height: 56px;
+      background: #e6162d;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 48px;
+      margin-bottom: 16px;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      background: #e6162d;
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .steps li h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .steps li p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .install {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .install p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #e6162d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #c91425;
+    }
+
+    header .btn {
+      margin-top: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #999;
+    }
+
+    .notice {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .notice strong {
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 48px 20px 80px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>视频转广告</h1>
+      <p class="subtitle">在侧边栏中播放当前标签页的视频，并显示实时热搜资讯。</p>
+      <a href="video2ad.zip" download="video2ad.zip" class="btn">下载 video2ad.zip</a>
+    </header>
+
+    <section>
+      <h2>使用方法</h2>
+      <ol class="steps">
+        <li>
+          <h3>安装扩展</h3>
+          <p>下载 video2ad.zip 后解压，拖到浏览器扩展程序管理页面，点击“添加”完成安装。</p>
+        </li>
+        <li>
+          <h3>打开视频页</h3>
+          <p>在浏览器中打开视频网站并开始播放视频。</p>
+        </li>
+        <li>
+          <h3>打开侧边栏</h3>
+          <p>点击扩展图标，选择“打开侧边栏”，视频会显示在侧边栏中。</p>
+        </li>
+        <li>
+          <h3>全屏原视频</h3>
+          <p>在原视频播放页点击全屏（不是侧边栏里的视频），之后即可随意切换标签页、最小化窗口或调整侧边栏宽度，不影响视频播放。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>支持平台</h2>
+      <p class="notice">
+        适用于大多数使用 HTML5 <code>&lt;video&gt;</code> 标签的网站。受 DRM 保护或跨域 iframe 限制的站点可能无法使用。
+      </p>
+    </section>
+
+    <style>
+      .beian-bar{width:100%;background:transparent;padding:12px 0;text-align:center;font-size:14px;line-height:1.6;border-top:1px solid transparent}
+      .beian-pc{display:flex;justify-content:center;align-items:center;gap:20px}
+      .beian-disclaimer{color:#e74c3c;white-space:nowrap}
+      .beian-icp{color:#333;text-decoration:none;white-space:nowrap}
+      .beian-gongan{display:inline-flex;align-items:center;gap:6px;color:#333;text-decoration:none;white-space:nowrap}
+      .beian-gongan img{width:16px;height:16px}
+      @media(max-width:768px){.beian-pc{display:none}.beian-mobile{display:flex;flex-direction:column;align-items:center;gap:6px}.beian-mobile a,.beian-mobile span{display:block;line-height:1.8}}
+      @media(min-width:769px){.beian-mobile{display:none}}
+    </style>
+    <div class="beian-bar">
+      <div class="beian-pc">
+        <span class="beian-disclaimer">本站内容仅供学习和交流，非商业用途</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="beian-icp">浙ICP备2025187466号</a>
+        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33030402001483" target="_blank" rel="noopener noreferrer" class="beian-gongan">
+          <img src="https://www.937788.xyz/gonganbeian.png" alt="公安备案" onerror="this.style.display='none'">
+          浙公网安备33030402001483号
+        </a>
+      </div>
+      <div class="beian-mobile">
+        <span class="beian-disclaimer">本站内容仅供学习和交流，非商业用途</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="beian-icp">浙ICP备2025187466号</a>
+        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33030402001483" target="_blank" rel="noopener noreferrer" class="beian-gongan">
+          <img src="https://www.937788.xyz/gonganbeian.png" alt="公安备案" onerror="this.style.display='none'">
+          浙公网安备33030402001483号
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
